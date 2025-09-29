@@ -1,338 +1,865 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Ford vs Ferrari - O Filme</title>
-
-<!-- Fonte moderna -->
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
-
-<style>
-    /* Reset básico */
-    *, *::before, *::after {
-        box-sizing: border-box;
-    }
-
-    body {
-        margin: 0;
-        font-family: 'Montserrat', sans-serif;
-        background: #f5f7fa;
-        color: #1a1a1a;
-        line-height: 1.6;
-        scroll-behavior: smooth;
-    }
-
-    /* Header */
-    header {
-        background: #003399;
-        padding: 30px 20px;
-        text-align: center;
-        box-shadow: 0 6px 15px rgba(0, 51, 153, 0.8);
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-    }
-
-    header h1 {
-        margin: 0;
-        font-size: 3rem;
-        font-weight: 900;
-        letter-spacing: 3px;
-        text-transform: uppercase;
-        color: #ffffff;
-        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-    }
-
-    /* Navegação */
-    nav {
-        display: flex;
-        justify-content: center;
-        gap: 40px;
-        background: #002080;
-        padding: 15px 0;
-        box-shadow: inset 0 -3px 8px rgba(0, 51, 153, 0.5);
-    }
-
-    nav a {
-        color: #cce0ff;
-        font-weight: 700;
-        text-decoration: none;
-        font-size: 1.2rem;
-        padding: 8px 15px;
-        border-radius: 6px;
-        transition: background-color 0.3s ease, color 0.3s ease;
-    }
-
-    nav a:hover,
-    nav a:focus {
-        background-color: #0052cc;
-        color: #ffffff;
-        box-shadow: 0 0 12px #3399ff;
-        outline: none;
-    }
-
-    main {
-        max-width: 1100px;
-        margin: 40px auto;
-        padding: 0 20px 60px;
-    }
-
-    section {
-        margin-bottom: 60px;
-    }
-
-    h2 {
-        font-size: 2.6rem;
-        margin-bottom: 15px;
-        color: #0052cc;
-        border-left: 6px solid #003399;
-        padding-left: 12px;
-        text-shadow: 1px 1px 2px rgba(200, 200, 200, 0.4);
-    }
-
-    p {
-        font-size: 1.2rem;
-        max-width: 850px;
-        margin-bottom: 25px;
-        text-align: justify;
-        color: #2b2b2b;
-    }
-
-    .movie-poster, .gallery img, .race-car, .film-scene {
-        max-width: 100%;
-        border-radius: 15px;
-        box-shadow: 0 8px 20px rgba(0, 51, 153, 0.4);
-        transition: transform 0.3s ease;
-        border: 4px solid #003399;
-        display: block;
-        margin: 20px auto;
-    }
-
-    .movie-poster:hover,
-    .gallery img:hover,
-    .race-car:hover,
-    .film-scene:hover {
-        transform: scale(1.05);
-        box-shadow: 0 12px 30px rgba(0, 82, 204, 0.7);
-    }
-
-    #detalhes .details-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 18px 60px;
-        max-width: 700px;
-    }
-
-    #detalhes .details-grid p {
-        margin: 0;
-        font-weight: 600;
-        color: #004080;
-    }
-
-    #detalhes .details-grid p span {
-        font-weight: 400;
-        color: #2b2b2b;
-    }
-
-    .external-links a {
-        display: inline-block;
-        margin: 12px 15px 12px 0;
-        padding: 14px 22px;
-        background: #003399;
-        color: white;
-        font-weight: 700;
-        border-radius: 8px;
-        text-decoration: none;
-        box-shadow: 0 6px 18px rgba(0, 51, 153, 0.8);
-        transition: background-color 0.3s ease, box-shadow 0.3s ease;
-        font-size: 1.1rem;
-    }
-
-    .external-links a:hover,
-    .external-links a:focus {
-        background: #0052cc;
-        box-shadow: 0 8px 24px rgba(0, 82, 204, 0.9);
-        outline: none;
-    }
-
-    .gallery {
-        display: grid;
-        grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
-        gap: 25px;
-        margin-top: 30px;
-    }
-
-    #sobre {
-        background: #e9f0ff;
-        padding: 25px 30px;
-        border-radius: 15px;
-        box-shadow: 0 10px 30px rgba(0, 51, 153, 0.3);
-        max-width: 900px;
-        color: #1a1a1a;
-    }
-
-    #sobre p {
-        font-size: 1.15rem;
-        max-width: 850px;
-    }
-
-    footer {
-        background: #002080;
-        text-align: center;
-        padding: 20px 10px;
-        color: #b3c6ff;
-        font-weight: 600;
-        font-size: 1rem;
-        letter-spacing: 1.2px;
-        box-shadow: inset 0 2px 8px rgba(0, 82, 204, 0.3);
-        user-select: none;
-    }
-
-    /* Responsividade */
-    @media (max-width: 700px) {
-        #detalhes .details-grid {
-            grid-template-columns: 1fr;
-            gap: 10px 0;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ford vs Ferrari - Le Mans Legends</title>
+    <style>
+        body {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: #ffffff;
+            line-height: 1.6;
         }
 
-        nav {
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23000" width="1200" height="600"/><path fill="%23ff4444" d="M0 300 Q300 200 600 300 T1200 300 V600 H0 Z"/></svg>');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.8);
+            background: linear-gradient(45deg, #ff4444, #ffaa00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
             flex-wrap: wrap;
-            gap: 20px;
         }
 
-        nav a {
-            font-size: 1rem;
-            padding: 7px 12px;
+        .nav-btn {
+            background: linear-gradient(45deg, #ff4444, #cc3333);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
         }
-    }
-</style>
+
+        .nav-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 68, 68, 0.4);
+            background: linear-gradient(45deg, #ff6666, #ee4444);
+        }
+
+        .section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section h2 {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            background: linear-gradient(45deg, #ff4444, #ffaa00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .movie-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .movie-card {
+            background: linear-gradient(135deg, #2a2a2a, #1a1a1a);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            transition: transform 0.3s ease;
+        }
+
+        .movie-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .movie-scene {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(45deg, #333, #555);
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .movie-scene::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .winners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .winner-card {
+            background: linear-gradient(135deg, #2a2a2a, #1a1a1a);
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .winner-card:hover {
+            transform: translateY(-5px);
+            border-color: #ff4444;
+            box-shadow: 0 15px 40px rgba(255, 68, 68, 0.3);
+        }
+
+        .car-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(45deg, #444, #666);
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ford-car {
+            background: linear-gradient(45deg, #0066cc, #004499);
+        }
+
+        .ferrari-car {
+            background: linear-gradient(45deg, #cc0000, #990000);
+        }
+
+        .porsche-car {
+            background: linear-gradient(45deg, #ffaa00, #cc8800);
+        }
+
+        .other-car {
+            background: linear-gradient(45deg, #666666, #444444);
+        }
+
+        .year-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(255, 68, 68, 0.9);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+
+        .car-info h3 {
+            color: #ff4444;
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .car-info p {
+            margin-bottom: 0.5rem;
+            color: #cccccc;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #ff4444, #cc3333);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(255, 68, 68, 0.3);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: #333;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: #ff4444;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-content p {
+                font-size: 1.2rem;
+            }
+            
+            .section h2 {
+                font-size: 2rem;
+            }
+            
+            .nav-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
 </head>
 <body>
-
-<header>
-    <h1>Ford vs Ferrari</h1>
-</header>
-
-<nav>
-    <a href="#sinopse">Sinopse</a>
-    <a href="#detalhes">Detalhes</a>
-    <a href="#le-mans">Le Mans</a>
-    <a href="#galeria">Galeria</a>
-    <a href="#links">Links Úteis</a>
-    <a href="#sobre">Sobre</a>
-</nav>
-
-<main>
-    <section id="sinopse" tabindex="0">
-        <h2>Sinopse</h2>
-        <p>
-            "Ford vs Ferrari" (2019) é um emocionante drama baseado em fatos reais que acompanha a batalha épica entre a Ford Motor Company e a Ferrari para conquistar a vitória na lendária corrida de 24 horas de Le Mans, em 1966. O filme foca no engenheiro Carroll Shelby e no destemido piloto Ken Miles, que unem forças para desenvolver um carro revolucionário capaz de derrotar o domínio italiano.
-        </p>
-        <img
-            src="https://upload.wikimedia.org/wikipedia/pt/9/9d/Ford_vs_Ferrari_poster.jpg"
-            alt="Pôster do filme Ford vs Ferrari"
-            class="movie-poster"
-            loading="lazy"
-        />
-    </section>
-
-    <section id="detalhes" tabindex="0">
-        <h2>Detalhes do Filme</h2>
-        <div class="details-grid">
-            <p><strong>Título Original:</strong> <span>Ford v Ferrari</span></p>
-            <p><strong>Direção:</strong> <span>James Mangold</span></p>
-            <p><strong>Elenco Principal:</strong> <span>Matt Damon, Christian Bale, Jon Bernthal, Caitriona Balfe</span></p>
-            <p><strong>Lançamento:</strong> <span>2019</span></p>
-            <p><strong>Gênero:</strong> <span>Drama, Ação, Esporte</span></p>
-            <p><strong>Duração:</strong> <span>2h 32min</span></p>
-            <p><strong>Nota IMDb:</strong> <span>8.1/10</span></p>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>FORD vs FERRARI</h1>
+            <p>A Lenda de Le Mans</p>
+            <div class="nav-buttons">
+                <a href="#movie" class="nav-btn">🎬 O Filme</a>
+                <a href="#winners" class="nav-btn">🏆 Vencedores</a>
+                <a href="#stats" class="nav-btn">📊 Estatísticas</a>
+            </div>
         </div>
     </section>
 
-    <section id="le-mans" tabindex="0">
-        <h2>Sobre a Corrida de 24 Horas de Le Mans</h2>
-        <p>
-            A <strong>24 Horas de Le Mans</strong> é uma das corridas de resistência mais famosas e desafiadoras do mundo, realizada anualmente desde 1923 em Le Mans, França. O objetivo é testar a durabilidade, eficiência e velocidade dos carros e equipes, completando o maior número de voltas em 24 horas. É uma verdadeira maratona de resistência para máquinas e pilotos.
-        </p>
-        <p>
-            A corrida também é um marco importante na história do automobilismo, onde fabricantes lutam por prestígio e avanço tecnológico. O filme "Ford vs Ferrari" dramatiza a batalha da Ford para quebrar o domínio da Ferrari na década de 1960.
-        </p>
-
-        <h3>Principais vencedores até o ano 2000</h3>
-        <p>Confira alguns dos carros icônicos e vencedores da corrida:</p>
-
-        <div class="gallery">
-            <figure>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/8/87/Ford_GT40_Le_Mans_1966.jpg" alt="Ford GT40 vencedor em 1966" class="race-car" loading="lazy" />
-                <figcaption><strong>Ford GT40 Mk II</strong><br />Vencedor em 1966, 1967 e 1968</figcaption>
-            </figure>
-
-            <figure>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/4/49/Porsche_956.jpg" alt="Porsche 956 vencedor" class="race-car" loading="lazy" />
-                <figcaption><strong>Porsche 956</strong><br />Dominante nos anos 80 com várias vitórias</figcaption>
-            </figure>
-
-            <figure>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/2/21/Porsche_962_C-1987.JPG" alt="Porsche 962 vencedor" class="race-car" loading="lazy" />
-                <figcaption><strong>Porsche 962</strong><br />Venceu várias vezes entre 1985 e 1994</figcaption>
-            </figure>
-
-            <figure>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/Toyota_TS020_Le_Mans_1999.jpg" alt="Toyota TS020 de 1999" class="race-car" loading="lazy" />
-                <figcaption><strong>Toyota TS020</strong><br />Competiu em 1999, destaque na era moderna</figcaption>
-            </figure>
-        </div>
-
-        <h3>Cenas marcantes do filme</h3>
-        <p>Abaixo, algumas imagens de cenas importantes para ilustrar a emoção da disputa:</p>
-
-        <div class="gallery">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/1/18/Matt_Damon_2013.jpg" alt="Matt Damon como Carroll Shelby" class="film-scene" loading="lazy" />
-            <img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Christian_Bale_2014.jpg" alt="Christian Bale como Ken Miles" class="film-scene" loading="lazy" />
-            <img src="https://m.media-amazon.com/images/M/MV5BMTkxOTYzNjA3MF5BMl5BanBnXkFtZTgwNjQ3MzM2NzM@._V1_.jpg" alt="Cena de corrida do filme Ford vs Ferrari" class="film-scene" loading="lazy" />
-            <img src="https://m.media-amazon.com/images/M/MV5BY2FkYmMxNjYtZjBjZS00ZjA1LThlYTgtYzMxNGVkZTg2ZmIzXkEyXkFqcGdeQXVyNjY1MTg4Mzk@._V1_.jpg" alt="Ken Miles pilotando no filme" class="film-scene" loading="lazy" />
+    <!-- Movie Section -->
+    <section id="movie" class="section">
+        <h2>🎬 Ford vs Ferrari - O Filme</h2>
+        
+        <div class="movie-grid">
+            <div class="movie-card">
+                <div class="movie-scene">
+                    🏁
+                </div>
+                <h3>A Rivalidade Épica</h3>
+                <p>Em 1966, a Ford Motor Company desafiou a dominância da Ferrari em Le Mans. Uma história de determinação, engenharia e velocidade que mudou o automobilismo para sempre.</p>
+            </div>
+            
+            <div class="movie-card">
+                <div class="movie-scene">
+                    🚗
+                </div>
+                <h3>Ford GT40</h3>
+                <p>O carro que quebrou a hegemonia italiana. Desenvolvido especificamente para vencer em Le Mans, o GT40 se tornou uma lenda do automobilismo mundial.</p>
+            </div>
+            
+            <div class="movie-card">
+                <div class="movie-scene">
+                    🏆
+                </div>
+                <h3>Vitória Histórica</h3>
+                <p>1966 marcou o fim da era Ferrari em Le Mans. A Ford conquistou não apenas a vitória, mas também o segundo e terceiro lugares, dominando completamente a corrida.</p>
+            </div>
         </div>
     </section>
 
-    <section id="galeria" tabindex="0">
-        <h2>Galeria de Imagens</h2>
-        <div class="gallery">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/8/87/Ford_GT40_Le_Mans_1966.jpg" alt="Ford GT40 em Le Mans 1966" loading="lazy" />
-            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6d/Ford_GT40MkII_Le_Mans_1966_2.jpg" alt="Ford GT40 Mk II" loading="lazy" />
-            <img src="https://upload.wikimedia.org/wikipedia/commons/9/9f/Ferrari_330_P3_1967.jpg" alt="Ferrari 330 P3 1967" loading="lazy" />
-            <img src="https://upload.wikimedia.org/wikipedia/commons/1/18/Matt_Damon_2013.jpg" alt="Matt Damon como Carroll Shelby" loading="lazy" />
-            <img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Christian_Bale_2014.jpg" alt="Christian Bale como Ken Miles" loading="lazy" />
+    <!-- Statistics Section -->
+    <section id="stats" class="section">
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-number">35</div>
+                <div>Anos Analisados</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">4</div>
+                <div>Vitórias Ford</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">9</div>
+                <div>Vitórias Ferrari</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">13</div>
+                <div>Vitórias Porsche</div>
+            </div>
         </div>
     </section>
 
-    <section id="links" class="external-links" tabindex="0">
-        <h2>Links Úteis</h2>
-        <a href="https://pt.wikipedia.org/wiki/Ford_vs_Ferrari" target="_blank" rel="noopener noreferrer" aria-label="Wikipédia Ford vs Ferrari">
-            Wikipédia
-        </a>
-        <a href="https://www.imdb.com/title/tt1950186/" target="_blank" rel="noopener noreferrer" aria-label="IMDb Ford vs Ferrari">
-            IMDb
-        </a>
-        <a href="https://en.wikipedia.org/wiki/24_Hours_of_Le_Mans" target="_blank" rel="noopener noreferrer" aria-label="Wikipédia 24 Horas de Le Mans">
-            Le Mans (Wikipédia)
-        </a>
-        <a href="https://www.lemans.org/en/" target="_blank" rel="noopener noreferrer" aria-label="Site oficial 24 Horas de Le Mans">
-            Site Oficial Le Mans
-        </a>
+    <!-- Winners Section -->
+    <section id="winners" class="section">
+        <h2>🏆 Vencedores de Le Mans (1966-2000)</h2>
+        
+        <div class="filter-buttons">
+            <button class="filter-btn active" onclick="filterCars('all')">Todos</button>
+            <button class="filter-btn" onclick="filterCars('ford')">Ford</button>
+            <button class="filter-btn" onclick="filterCars('ferrari')">Ferrari</button>
+            <button class="filter-btn" onclick="filterCars('porsche')">Porsche</button>
+            <button class="filter-btn" onclick="filterCars('other')">Outros</button>
+        </div>
+
+        <div class="winners-grid" id="winnersGrid">
+            <!-- Ford Victories -->
+            <div class="winner-card ford">
+                <div class="car-image ford-car">
+                    <div class="year-badge">1966</div>
+                    🚗
+                </div>
+                <div class="car-info">
+                    <h3>Ford GT40 Mk II</h3>
+                    <p><strong>Pilotos:</strong> Bruce McLaren / Chris Amon</p>
+                    <p><strong>Equipe:</strong> Shelby American</p>
+                    <p>A primeira vitória histórica da Ford, quebrando a hegemonia Ferrari.</p>
+                </div>
+            </div>
+
+            <div class="winner-card ford">
+                <div class="car-image ford-car">
+                    <div class="year-badge">1967</div>
+                    🚗
+                </div>
+                <div class="car-info">
+                    <h3>Ford GT40 Mk IV</h3>
+                    <p><strong>Pilotos:</strong> Dan Gurney / A.J. Foyt</p>
+                    <p><strong>Equipe:</strong> Shelby American</p>
+                    <p>Segunda vitória consecutiva com o revolucionário Mk IV.</p>
+                </div>
+            </div>
+
+            <div class="winner-card ford">
+                <div class="car-image ford-car">
+                    <div class="year-badge">1968</div>
+                    🚗
+                </div>
+                <div class="car-info">
+                    <h3>Ford GT40</h3>
+                    <p><strong>Pilotos:</strong> Pedro Rodríguez / Lucien Bianchi</p>
+                    <p><strong>Equipe:</strong> JW Automotive</p>
+                    <p>Terceira vitória da Ford em Le Mans.</p>
+                </div>
+            </div>
+
+            <div class="winner-card ford">
+                <div class="car-image ford-car">
+                    <div class="year-badge">1969</div>
+                    🚗
+                </div>
+                <div class="car-info">
+                    <h3>Ford GT40</h3>
+                    <p><strong>Pilotos:</strong> Jacky Ickx / Jackie Oliver</p>
+                    <p><strong>Equipe:</strong> JW Automotive</p>
+                    <p>Quarta e última vitória da era GT40.</p>
+                </div>
+            </div>
+
+            <!-- Porsche Victories -->
+            <div class="winner-card porsche">
+                <div class="car-image porsche-car">
+                    <div class="year-badge">1970</div>
+                    🚗
+                </div>
+                <div class="car-info">
+                    <h3>Porsche 917K</h3>
+                    <p><strong>Pilotos:</strong> Hans Herrmann / Richard Attwood</p>
+                    <p><strong>Equipe:</strong> Porsche Salzburg</p>
+                    <p>Primeira vitória da Porsche em Le Mans.</p>
+                </div>
+            </div>
+
+            <div class="winner-card porsche">
+                <div class="car-image porsche-car">
+                    <div class="year-badge">1971</div>
+                    🚗
+                </div>
+                <div class="car-info">
+                    <h3>Porsche 917K</h3>
+                    <p><strong>Pilotos:</strong> Helmut Marko / Gijs van Lennep</p>
+                    <p><strong>Equipe:</strong> Martini Racing</p>
+                    <p>Segunda vitória consecutiva da Porsche.</p>
+                </div>
+            </div>
+
+            <!-- Ferrari Victories -->
+            <div class="winner-card ferrari">
+                <div class="car-image ferrari-car">
+                    <div class="year-badge">1972</div>
+                    🏎️
+                </div>
+                <div class="car-info">
+                    <h3>Ferrari 365 GTB/4</h3>
+                    <p><strong>Pilotos:</strong> Henri Pescarolo / Graham Hill</p>
+                    <p><strong>Equipe:</strong> NART</p>
+                    <p>Ferrari retorna às vitórias em Le Mans.</p>
+                </div>
+            </div>
+
+            <div class="winner-card ferrari">
+                <div class="car-image ferrari-car">
+                    <div class="year-badge">1973</div>
+                    🏎️
+                </div>
+                <div class="car-info">
+                    <h3>Ferrari 312PB</h3>
+                    <p><strong>Pilotos:</strong> Henri Pescarolo / Gérard Larrousse</p>
+                    <p><strong>Equipe:</strong> Scuderia Ferrari</p>
+                    <p>Domínio Ferrari com o 312PB.</p>
+                </div>
+            </div>
+
+            <div class="winner-card ferrari">
+                <div class="car-image ferrari-car">
+                    <div class="year-badge">1974</div>
+                    🏎️
+                </div>
+                <div class="car-info">
+                    <h3>Ferrari 312PB</h3>
+                    <p><strong>Pilotos:</strong> Henri Pescarolo / Gérard Larrousse</p>
+                    <p><strong>Equipe:</strong> Scuderia Ferrari</p>
+                    <p>Segunda vitória consecutiva da dupla.</p>
+                </div>
+            </div>
+
+            <!-- More Porsche -->
+            <div class="winner-card porsche">
+                <div class="car-image porsche-car">
+                    <div class="year-badge">1976</div>
+                    🚗
+                </div>
+                <div class="car-info">
+                    <h3>Porsche 936</h3>
+                    <p><strong>Pilotos:</strong> Jacky Ickx / Gijs van Lennep</p>
+                    <p><strong>Equipe:</strong> Porsche System</p>
+                    <p>Retorno triunfal da Porsche.</p>
+                </div>
+            </div>
+
+            <div class="winner-card porsche">
+                <div class="car-image porsche-car">
+                    <div class="year-badge">1977</div>
+                    🚗
+                </div>
+                <div class="car-info">
+                    <h3>Porsche 936</h3>
+                    <p><strong>Pilotos:</strong> Jacky Ickx / Jürgen Barth / Hurley Haywood</p>
+                    <p><strong>Equipe:</strong> Porsche System</p>
+                    <p>Ickx conquista sua terceira vitória.</p>
+                </div>
+            </div>
+
+            <!-- Alpine Victory -->
+            <div class="winner-card other">
+                <div class="car-image other-car">
+                    <div class="year-badge">1978</div>
+                    🚗
+                </div>
+                <div class="car-info">
+                    <h3>Alpine A442B</h3>
+                    <p><strong>Pilotos:</strong> Didier Pironi / Jean-Pierre Jaussaud</p>
+                    <p><strong>Equipe:</strong> Renault Sport</p>
+                    <p>Única vitória da Alpine em Le Mans.</p>
+                </div>
+            </div>
+
+            <!-- More Porsche dominance -->
+            <div class="winner-card porsche">
+                <div class="car-image porsche-car">
+                    <div class="year-badge">1979</div>
+                    🚗
+                </div>
+                <div class="car-info">
+                    <h3>Porsche 935 K3</h3>
+                    <p><strong>Pilotos:</strong> Klaus Ludwig / Bill Whittington / Don Whittington</p>
+                    <p><strong>Equipe:</strong> Kremer Racing</p>
+                    <p>Vitória da equipe privada Kremer.</p>
+                </div>
+            </div>
+
+            <div class="winner-card porsche">
+                <div class="car-image porsche-car">
+                    <div class="year-badge">1981</div>
+                    🚗
+                </div>
+                <div class="car-info">
+                    <h3>Porsche 936/81</h3>
+                    <p><strong>Pilotos:</strong> Jacky Ickx / Derek Bell</p>
+                    <p><strong>Equipe:</strong> Porsche System</p>
+                    <p>Quarta vitória de Ickx em Le Mans.</p>
+                </div>
+            </div>
+
+            <div class="winner-card porsche">
+                <div class="car-image porsche-car">
+                    <div class="year-badge">1982</div>
+                    🚗
+                </div>
+                <div class="car-info">
+                    <h3>Porsche 956</h3>
+                    <p><strong>Pilotos:</strong> Jacky Ickx / Derek Bell</p>
+                    <p><strong>Equipe:</strong> Porsche System</p>
+                    <p>Estreia vitoriosa do revolucionário 956.</p>
+                </div>
+            </div>
+
+            <div class="winner-card porsche">
+                <div class="car-image porsche-car">
+                    <div class="year-badge">1983</div>
+                    🚗
+                </div>
+                <div class="car-info">
+                    <h3>Porsche 956</h3>
+                    <p><strong>Pilotos:</strong> Vern Schuppan / Hurley Haywood / Al Holbert</p>
+                    <p><strong>Equipe:</strong> Porsche System</p>
+                    <p>Domínio continuado do 956.</p>
+                </div>
+            </div>
+
+            <div class="winner-card porsche">
+                <div class="car-image porsche-car">
+                    <div class="year-badge">1984</div>
+                    🚗
+                </div>
+                <div class="car-info">
+                    <h3>Porsche 956B</h3>
+                    <p><strong>Pilotos:</strong> Henri Pescarolo / Klaus Ludwig</p>
+                    <p><strong>Equipe:</strong> Joest Racing</p>
+                    <p>Primeira vitória da lendária Joest Racing.</p>
+                </div>
+            </div>
+
+            <div class="winner-card porsche">
+                <div class="car-image porsche-car">
+                    <div class="year-badge">1985</div>
+                    🚗
+                </div>
+                <div class="car-info">
+                    <h3>Porsche 956B</h3>
+                    <p><strong>Pilotos:</strong> Klaus Ludwig / Paolo Barilla / John Winter</p>
+                    <p><strong>Equipe:</strong> Joest Racing</p>
+                    <p>Segunda vitória consecutiva da Joest.</p>
+                </div>
+            </div>
+
+            <div class="winner-card porsche">
+                <div class="car-image porsche-car">
+                    <div class="year-badge">1986</div>
+                    🚗
+                </div>
+                <div class="car-info">
+                    <h3>Porsche 962C</h3>
+                    <p><strong>Pilotos:</strong> Derek Bell / Hans Stuck / Al Holbert</p>
+                    <p><strong>Equipe:</strong> Porsche System</p>
+                    <p>Evolução do 956 conquista Le Mans.</p>
+                </div>
+            </div>
+
+            <div class="winner-card porsche">
+                <div class="car-image porsche-car">
+                    <div class="year-badge">1987</div>
+                    🚗
+                </div>
+                <div class="car-info">
+                    <h3>Porsche 962C</h3>
+                    <p><strong>Pilotos:</strong> Derek Bell / Hans Stuck / Al Holbert</p>
+                    <p><strong>Equipe:</strong> Porsche System</p>
+                    <p>Bicampeonato da mesma equipe.</p>
+                </div>
+            </div>
+
+            <!-- Jaguar Victory -->
+            <div class="winner-card other">
+                <div class="car-image other-car">
+                    <div class="year-badge">1988</div>
+                    🚗
+                </div>
+                <div class="car-info">
+                    <h3>Jaguar XJR-9</h3>
+                    <p><strong>Pilotos:</strong> Jan Lammers / Johnny Dumfries / Andy Wallace</p>
+                    <p><strong>Equipe:</strong> Jaguar</p>
+                    <p>Jaguar quebra hegemonia Porsche.</p>
+                </div>
+            </div>
+
+            <!-- Mercedes Victories -->
+            <div class="winner-card other">
+                <div class="car-image other-car">
+                    <div class="year-badge">1989</div>
+                    🚗
+                </div>
+                <div class="car-info">
+                    <h3>Mercedes C9</h3>
+                    <p><strong>Pilotos:</strong> Jochen Mass / Manuel Reuter / Stanley Dickens</p>
+                    <p><strong>Equipe:</strong> Sauber Mercedes</p>
+                    <p>Mercedes retorna às vitórias.</p>
+                </div>
+            </div>
+
+            <!-- Jaguar Returns -->
+            <div class="winner-card other">
+                <div class="car-image other-car">
+                    <div class="year-badge">1990</div>
+                    🚗
+                </div>
+                <div class="car-info">
+                    <h3>Jaguar XJR-12</h3>
+                    <p><strong>Pilotos:</strong> John Nielsen / Price Cobb / Martin Brundle</p>
+                    <p><strong>Equipe:</strong> Jaguar</p>
+                    <p>Segunda vitória da Jaguar.</p>
+                </div>
+            </div>
+
+            <!-- Mazda's Historic Win -->
+            <div class="winner-card other">
+                <div class="car-image other-car">
+                    <div class="year-badge">1991</div>
+                    🚗
+                </div>
+                <div class="car-info">
+                    <h3>Mazda 787B</h3>
+                    <p><strong>Pilotos:</strong> Volker Weidler / Johnny Herbert / Bertrand Gachot</p>
+                    <p><strong>Equipe:</strong> Mazda</p>
+                    <p>Única vitória de motor rotativo em Le Mans.</p>
+                </div>
+            </div>
+
+            <!-- Peugeot Era -->
+            <div class="winner-card other">
+                <div class="car-image other-car">
+                    <div class="year-badge">1992</div>
+                    🚗
+                </div>
+                <div class="car-info">
+                    <h3>Peugeot 905</h3>
+                    <p><strong>Pilotos:</strong> Derek Warwick / Yannick Dalmas / Mark Blundell</p>
+                    <p><strong>Equipe:</strong> Peugeot Talbot Sport</p>
+                    <p>Primeira vitória da Peugeot.</p>
+                </div>
+            </div>
+
+            <div class="winner-card other">
+                <div class="car-image other-car">
+                    <div class="year-badge">1993</div>
+                    🚗
+                </div>
+                <div class="car-info">
+                    <h3>Peugeot 905</h3>
+                    <p><strong>Pilotos:</strong> Geoff Brabham / Christophe Bouchut / Eric Hélary</p>
+                    <p><strong>Equipe:</strong> Peugeot Talbot Sport</p>
+                    <p>Bicampeonato da Peugeot.</p>
+                </div>
+            </div>
+
+            <!-- Porsche Returns -->
+            <div class="winner-card porsche">
+                <div class="car-image porsche-car">
+                    <div class="year-badge">1994</div>
+                    🚗
+                </div>
+                <div class="car-info">
+                    <h3>Porsche 962 Dauer</h3>
+                    <p><strong>Pilotos:</strong> Yannick Dalmas / Hurley Haywood / Mauro Baldi</p>
+                    <p><strong>Equipe:</strong> Dauer Racing</p>
+                    <p>Última vitória do 962.</p>
+                </div>
+            </div>
+
+            <!-- McLaren Victory -->
+            <div class="winner-card other">
+                <div class="car-image other-car">
+                    <div class="year-badge">1995</div>
+                    🚗
+                </div>
+                <div class="car-info">
+                    <h3>McLaren F1 GTR</h3>
+                    <p><strong>Pilotos:</strong> Yannick Dalmas / JJ Lehto / Masanori Sekiya</p>
+                    <p><strong>Equipe:</strong> Kokusai Kaihatsu</p>
+                    <p>Vitória histórica do McLaren F1.</p>
+                </div>
+            </div>
+
+            <!-- Porsche Returns Again -->
+            <div class="winner-card porsche">
+                <div class="car-image porsche-car">
+                    <div class="year-badge">1996</div>
+                    🚗
+                </div>
+                <div class="car-info">
+                    <h3>Porsche WSC-95</h3>
+                    <p><strong>Pilotos:</strong> Davy Jones / Manuel Reuter / Alexander Wurz</p>
+                    <p><strong>Equipe:</strong> Joest Racing</p>
+                    <p>Joest Racing volta a vencer.</p>
+                </div>
+            </div>
+
+            <div class="winner-card porsche">
+                <div class="car-image porsche-car">
+                    <div class="year-badge">1997</div>
+                    🚗
+                </div>
+                <div class="car-info">
+                    <h3>Porsche WSC-95</h3>
+                    <p><strong>Pilotos:</strong> Michele Alboreto / Stefan Johansson / Tom Kristensen</p>
+                    <p><strong>Equipe:</strong> Joest Racing</p>
+                    <p>Primeira vitória de Kristensen.</p>
+                </div>
+            </div>
+
+            <div class="winner-card porsche">
+                <div class="car-image porsche-car">
+                    <div class="year-badge">1998</div>
+                    🚗
+                </div>
+                <div class="car-info">
+                    <h3>Porsche 911 GT1-98</h3>
+                    <p><strong>Pilotos:</strong> Allan McNish / Stéphane Ortelli / Laurent Aïello</p>
+                    <p><strong>Equipe:</strong> Porsche AG</p>
+                    <p>Vitória do revolucionário GT1.</p>
+                </div>
+            </div>
+
+            <!-- BMW Victory -->
+            <div class="winner-card other">
+                <div class="car-image other-car">
+                    <div class="year-badge">1999</div>
+                    🚗
+                </div>
+                <div class="car-info">
+                    <h3>BMW V12 LMR</h3>
+                    <p><strong>Pilotos:</strong> Yannick Dalmas / Joachim Winkelhock / Pierluigi Martini</p>
+                    <p><strong>Equipe:</strong> BMW Motorsport</p>
+                    <p>Primeira vitória da BMW.</p>
+                </div>
+            </div>
+
+            <!-- Audi Era Begins -->
+            <div class="winner-card other">
+                <div class="car-image other-car">
+                    <div class="year-badge">2000</div>
+                    🚗
+                </div>
+                <div class="car-info">
+                    <h3>Audi R8</h3>
+                    <p><strong>Pilotos:</strong> Frank Biela / Tom Kristensen / Emanuele Pirro</p>
+                    <p><strong>Equipe:</strong> Audi Sport Team Joest</p>
+                    <p>Início da era de domínio Audi.</p>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section id="sobre" tabindex="0">
-        <h2>Sobre este site</h2>
-        <p>
-            Este site foi criado para fãs de automobilismo e cinema, reunindo informações sobre o filme <em>Ford vs Ferrari</em> e a lendária corrida de 24 Horas de Le Mans. Nosso objetivo é apresentar conteúdo rico, imagens e links confiáveis para uma experiência completa e agradável.
-        </p>
-    </section>
-</main>
+    <script>
+        function filterCars(brand) {
+            const cards = document.querySelectorAll('.winner-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+            
+            // Update active button
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            // Filter cards
+            cards.forEach(card => {
+                if (brand === 'all') {
+                    card.style.display = 'block';
+                } else {
+                    if (card.classList.contains(brand)) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                }
+            });
+        }
 
-<footer>
-    &copy; 2025 Ford vs Ferrari Fan Site | Feito com ❤️ e código limpo
-</footer>
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
 
-</body>
+        // Add scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards
+        document.querySelectorAll('.winner-card, .movie-card, .stat-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'986c92f795b5544a',t:'MTc1OTE2MDM3NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
+
