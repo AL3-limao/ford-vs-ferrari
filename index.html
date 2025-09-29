@@ -4,204 +4,60 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Ford vs Ferrari - O Filme</title>
+
+    <!-- Fonte moderna -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+
     <style>
         /* Reset básico */
-        * {
-            margin: 0;
-            padding: 0;
+        *, *::before, *::after {
             box-sizing: border-box;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #1a1a1a;
-            color: #eee;
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            background: #121212;
+            color: #f1f1f1;
             line-height: 1.6;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
+            scroll-behavior: smooth;
         }
 
+        /* Header */
         header {
-            background: #b30000;
-            padding: 20px 40px;
+            background: linear-gradient(90deg, #b30000, #660000);
+            padding: 30px 20px;
             text-align: center;
-            box-shadow: 0 2px 10px rgba(179,0,0,0.6);
+            box-shadow: 0 6px 15px rgba(179, 0, 0, 0.8);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
         header h1 {
-            font-size: 2.8rem;
-            letter-spacing: 2px;
-            color: #fff;
-            text-transform: uppercase;
+            margin: 0;
+            font-size: 3rem;
             font-weight: 900;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #fff;
+            text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
         }
 
+        /* Navegação */
         nav {
-            background: #330000;
             display: flex;
             justify-content: center;
-            gap: 30px;
+            gap: 40px;
+            background: #2a0000;
             padding: 15px 0;
-            box-shadow: inset 0 -2px 5px rgba(255,255,255,0.1);
+            box-shadow: inset 0 -3px 8px rgba(255, 0, 0, 0.5);
         }
 
         nav a {
-            color: #fff;
-            font-weight: 600;
+            color: #ff5555;
+            font-weight: 700;
             text-decoration: none;
-            font-size: 1.1rem;
-            padding: 8px 16px;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
+            font-size: 1.2rem;
 
-        nav a:hover {
-            background: #b30000;
-            box-shadow: 0 0 8px #b30000;
-        }
-
-        main {
-            flex: 1;
-            padding: 40px 20px;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        h2 {
-            margin-bottom: 15px;
-            color: #b30000;
-            font-size: 2rem;
-            border-bottom: 3px solid #b30000;
-            padding-bottom: 8px;
-        }
-
-        p {
-            margin-bottom: 20px;
-            font-size: 1.15rem;
-        }
-
-        .movie-poster {
-            width: 100%;
-            max-width: 400px;
-            display: block;
-            margin: 20px auto;
-            border-radius: 15px;
-            box-shadow: 0 8px 15px rgba(179,0,0,0.7);
-        }
-
-        footer {
-            background: #330000;
-            color: #ccc;
-            text-align: center;
-            padding: 15px 10px;
-            font-size: 0.9rem;
-            box-shadow: inset 0 2px 5px rgba(255,255,255,0.1);
-        }
-
-        /* Estilo dos links externos */
-        .external-links a {
-            display: inline-block;
-            margin: 10px 15px 10px 0;
-            padding: 10px 15px;
-            background: #b30000;
-            color: white;
-            font-weight: 600;
-            border-radius: 6px;
-            text-decoration: none;
-            box-shadow: 0 4px 10px rgba(179,0,0,0.6);
-            transition: background-color 0.3s ease;
-        }
-
-        .external-links a:hover {
-            background: #7f0000;
-        }
-
-        /* Sobre */
-        #sobre {
-            background: #2a2a2a;
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 6px 12px rgba(0,0,0,0.7);
-            margin-top: 40px;
-        }
-
-        @media (max-width: 600px) {
-            nav {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            main {
-                padding: 20px 15px;
-            }
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <h1>Ford vs Ferrari</h1>
-    </header>
-
-    <nav>
-        <a href="#sinopse">Sinopse</a>
-        <a href="#detalhes">Detalhes do Filme</a>
-        <a href="#links">Links Úteis</a>
-        <a href="#sobre">Sobre o Site</a>
-    </nav>
-
-    <main>
-        <section id="sinopse">
-            <h2>Sinopse</h2>
-            <p>
-                "Ford vs Ferrari" é um filme de drama e ação de 2019 que retrata a história real da luta entre a Ford Motor Company e a Ferrari na corrida de 24 horas de Le Mans em 1966. O filme acompanha o engenheiro americano Carroll Shelby e o talentoso piloto Ken Miles enquanto eles trabalham para construir um carro revolucionário para derrotar a Ferrari, líder incontestável das corridas na época.
-            </p>
-            <img 
-                src="https://upload.wikimedia.org/wikipedia/pt/9/9d/Ford_vs_Ferrari_poster.jpg" 
-                alt="Pôster do filme Ford vs Ferrari" 
-                class="movie-poster"
-            />
-        </section>
-
-        <section id="detalhes">
-            <h2>Detalhes do Filme</h2>
-            <p><strong>Título Original:</strong> Ford v Ferrari</p>
-            <p><strong>Direção:</strong> James Mangold</p>
-            <p><strong>Elenco Principal:</strong> Matt Damon, Christian Bale, Jon Bernthal, Caitriona Balfe</p>
-            <p><strong>Lançamento:</strong> 2019</p>
-            <p><strong>Gênero:</strong> Drama, Ação, Esporte</p>
-        </section>
-
-        <section id="links" class="external-links">
-            <h2>Links Úteis</h2>
-            <a href="https://pt.wikipedia.org/wiki/Ford_vs_Ferrari" target="_blank" rel="noopener noreferrer">
-                Wikipédia - Ford vs Ferrari
-            </a>
-            <a href="https://www.imdb.com/title/tt1950186/" target="_blank" rel="noopener noreferrer">
-                IMDb - Ford v Ferrari
-            </a>
-            <a href="https://www.rottentomatoes.com/m/ford_vs_ferrari" target="_blank" rel="noopener noreferrer">
-                Rotten Tomatoes
-            </a>
-            <a href="https://www.youtube.com/watch?v=zyYVBuqY6gE" target="_blank" rel="noopener noreferrer">
-                Trailer Oficial (YouTube)
-            </a>
-        </section>
-
-        <section id="sobre">
-            <h2>Sobre o Site</h2>
-            <p>
-                Este site foi criado para fornecer informações essenciais sobre o filme "Ford vs Ferrari" de forma clara e organizada, com links confiáveis para quem deseja saber mais. Ideal para fãs do cinema, entusiastas de corridas e curiosos em geral.
-            </p>
-            <p>
-                Desenvolvido por um entusiasta de filmes, com foco em design simples, responsivo e moderno para oferecer uma boa experiência em qualquer dispositivo.
-            </p>
-        </section>
-    </main>
-
-    <footer>
-        &copy; 2025 Ford vs Ferrari Fansite. Todos os direitos reservados.
-    </footer>
-</body>
-</html>
 
