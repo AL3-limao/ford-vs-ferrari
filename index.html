@@ -1,63 +1,338 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Ford vs Ferrari - O Filme</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ford vs Ferrari - O Filme</title>
 
-    <!-- Fonte moderna -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+<!-- Fonte moderna -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
 
-    <style>
-        /* Reset básico */
-        *, *::before, *::after {
-            box-sizing: border-box;
+<style>
+    /* Reset básico */
+    *, *::before, *::after {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        font-family: 'Montserrat', sans-serif;
+        background: #f5f7fa;
+        color: #1a1a1a;
+        line-height: 1.6;
+        scroll-behavior: smooth;
+    }
+
+    /* Header */
+    header {
+        background: #003399;
+        padding: 30px 20px;
+        text-align: center;
+        box-shadow: 0 6px 15px rgba(0, 51, 153, 0.8);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+
+    header h1 {
+        margin: 0;
+        font-size: 3rem;
+        font-weight: 900;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: #ffffff;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Navegação */
+    nav {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        background: #002080;
+        padding: 15px 0;
+        box-shadow: inset 0 -3px 8px rgba(0, 51, 153, 0.5);
+    }
+
+    nav a {
+        color: #cce0ff;
+        font-weight: 700;
+        text-decoration: none;
+        font-size: 1.2rem;
+        padding: 8px 15px;
+        border-radius: 6px;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    nav a:hover,
+    nav a:focus {
+        background-color: #0052cc;
+        color: #ffffff;
+        box-shadow: 0 0 12px #3399ff;
+        outline: none;
+    }
+
+    main {
+        max-width: 1100px;
+        margin: 40px auto;
+        padding: 0 20px 60px;
+    }
+
+    section {
+        margin-bottom: 60px;
+    }
+
+    h2 {
+        font-size: 2.6rem;
+        margin-bottom: 15px;
+        color: #0052cc;
+        border-left: 6px solid #003399;
+        padding-left: 12px;
+        text-shadow: 1px 1px 2px rgba(200, 200, 200, 0.4);
+    }
+
+    p {
+        font-size: 1.2rem;
+        max-width: 850px;
+        margin-bottom: 25px;
+        text-align: justify;
+        color: #2b2b2b;
+    }
+
+    .movie-poster, .gallery img, .race-car, .film-scene {
+        max-width: 100%;
+        border-radius: 15px;
+        box-shadow: 0 8px 20px rgba(0, 51, 153, 0.4);
+        transition: transform 0.3s ease;
+        border: 4px solid #003399;
+        display: block;
+        margin: 20px auto;
+    }
+
+    .movie-poster:hover,
+    .gallery img:hover,
+    .race-car:hover,
+    .film-scene:hover {
+        transform: scale(1.05);
+        box-shadow: 0 12px 30px rgba(0, 82, 204, 0.7);
+    }
+
+    #detalhes .details-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 18px 60px;
+        max-width: 700px;
+    }
+
+    #detalhes .details-grid p {
+        margin: 0;
+        font-weight: 600;
+        color: #004080;
+    }
+
+    #detalhes .details-grid p span {
+        font-weight: 400;
+        color: #2b2b2b;
+    }
+
+    .external-links a {
+        display: inline-block;
+        margin: 12px 15px 12px 0;
+        padding: 14px 22px;
+        background: #003399;
+        color: white;
+        font-weight: 700;
+        border-radius: 8px;
+        text-decoration: none;
+        box-shadow: 0 6px 18px rgba(0, 51, 153, 0.8);
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        font-size: 1.1rem;
+    }
+
+    .external-links a:hover,
+    .external-links a:focus {
+        background: #0052cc;
+        box-shadow: 0 8px 24px rgba(0, 82, 204, 0.9);
+        outline: none;
+    }
+
+    .gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+        gap: 25px;
+        margin-top: 30px;
+    }
+
+    #sobre {
+        background: #e9f0ff;
+        padding: 25px 30px;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 51, 153, 0.3);
+        max-width: 900px;
+        color: #1a1a1a;
+    }
+
+    #sobre p {
+        font-size: 1.15rem;
+        max-width: 850px;
+    }
+
+    footer {
+        background: #002080;
+        text-align: center;
+        padding: 20px 10px;
+        color: #b3c6ff;
+        font-weight: 600;
+        font-size: 1rem;
+        letter-spacing: 1.2px;
+        box-shadow: inset 0 2px 8px rgba(0, 82, 204, 0.3);
+        user-select: none;
+    }
+
+    /* Responsividade */
+    @media (max-width: 700px) {
+        #detalhes .details-grid {
+            grid-template-columns: 1fr;
+            gap: 10px 0;
         }
 
-        body {
-            margin: 0;
-            font-family: 'Montserrat', sans-serif;
-            background: #121212;
-            color: #f1f1f1;
-            line-height: 1.6;
-            scroll-behavior: smooth;
-        }
-
-        /* Header */
-        header {
-            background: linear-gradient(90deg, #b30000, #660000);
-            padding: 30px 20px;
-            text-align: center;
-            box-shadow: 0 6px 15px rgba(179, 0, 0, 0.8);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 3rem;
-            font-weight: 900;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: #fff;
-            text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
-        }
-
-        /* Navegação */
         nav {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            background: #2a0000;
-            padding: 15px 0;
-            box-shadow: inset 0 -3px 8px rgba(255, 0, 0, 0.5);
+            flex-wrap: wrap;
+            gap: 20px;
         }
 
         nav a {
-            color: #ff5555;
-            font-weight: 700;
-            text-decoration: none;
-            font-size: 1.2rem;
+            font-size: 1rem;
+            padding: 7px 12px;
+        }
+    }
+</style>
+</head>
+<body>
 
+<header>
+    <h1>Ford vs Ferrari</h1>
+</header>
 
+<nav>
+    <a href="#sinopse">Sinopse</a>
+    <a href="#detalhes">Detalhes</a>
+    <a href="#le-mans">Le Mans</a>
+    <a href="#galeria">Galeria</a>
+    <a href="#links">Links Úteis</a>
+    <a href="#sobre">Sobre</a>
+</nav>
+
+<main>
+    <section id="sinopse" tabindex="0">
+        <h2>Sinopse</h2>
+        <p>
+            "Ford vs Ferrari" (2019) é um emocionante drama baseado em fatos reais que acompanha a batalha épica entre a Ford Motor Company e a Ferrari para conquistar a vitória na lendária corrida de 24 horas de Le Mans, em 1966. O filme foca no engenheiro Carroll Shelby e no destemido piloto Ken Miles, que unem forças para desenvolver um carro revolucionário capaz de derrotar o domínio italiano.
+        </p>
+        <img
+            src="https://upload.wikimedia.org/wikipedia/pt/9/9d/Ford_vs_Ferrari_poster.jpg"
+            alt="Pôster do filme Ford vs Ferrari"
+            class="movie-poster"
+            loading="lazy"
+        />
+    </section>
+
+    <section id="detalhes" tabindex="0">
+        <h2>Detalhes do Filme</h2>
+        <div class="details-grid">
+            <p><strong>Título Original:</strong> <span>Ford v Ferrari</span></p>
+            <p><strong>Direção:</strong> <span>James Mangold</span></p>
+            <p><strong>Elenco Principal:</strong> <span>Matt Damon, Christian Bale, Jon Bernthal, Caitriona Balfe</span></p>
+            <p><strong>Lançamento:</strong> <span>2019</span></p>
+            <p><strong>Gênero:</strong> <span>Drama, Ação, Esporte</span></p>
+            <p><strong>Duração:</strong> <span>2h 32min</span></p>
+            <p><strong>Nota IMDb:</strong> <span>8.1/10</span></p>
+        </div>
+    </section>
+
+    <section id="le-mans" tabindex="0">
+        <h2>Sobre a Corrida de 24 Horas de Le Mans</h2>
+        <p>
+            A <strong>24 Horas de Le Mans</strong> é uma das corridas de resistência mais famosas e desafiadoras do mundo, realizada anualmente desde 1923 em Le Mans, França. O objetivo é testar a durabilidade, eficiência e velocidade dos carros e equipes, completando o maior número de voltas em 24 horas. É uma verdadeira maratona de resistência para máquinas e pilotos.
+        </p>
+        <p>
+            A corrida também é um marco importante na história do automobilismo, onde fabricantes lutam por prestígio e avanço tecnológico. O filme "Ford vs Ferrari" dramatiza a batalha da Ford para quebrar o domínio da Ferrari na década de 1960.
+        </p>
+
+        <h3>Principais vencedores até o ano 2000</h3>
+        <p>Confira alguns dos carros icônicos e vencedores da corrida:</p>
+
+        <div class="gallery">
+            <figure>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/8/87/Ford_GT40_Le_Mans_1966.jpg" alt="Ford GT40 vencedor em 1966" class="race-car" loading="lazy" />
+                <figcaption><strong>Ford GT40 Mk II</strong><br />Vencedor em 1966, 1967 e 1968</figcaption>
+            </figure>
+
+            <figure>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/49/Porsche_956.jpg" alt="Porsche 956 vencedor" class="race-car" loading="lazy" />
+                <figcaption><strong>Porsche 956</strong><br />Dominante nos anos 80 com várias vitórias</figcaption>
+            </figure>
+
+            <figure>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/2/21/Porsche_962_C-1987.JPG" alt="Porsche 962 vencedor" class="race-car" loading="lazy" />
+                <figcaption><strong>Porsche 962</strong><br />Venceu várias vezes entre 1985 e 1994</figcaption>
+            </figure>
+
+            <figure>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/Toyota_TS020_Le_Mans_1999.jpg" alt="Toyota TS020 de 1999" class="race-car" loading="lazy" />
+                <figcaption><strong>Toyota TS020</strong><br />Competiu em 1999, destaque na era moderna</figcaption>
+            </figure>
+        </div>
+
+        <h3>Cenas marcantes do filme</h3>
+        <p>Abaixo, algumas imagens de cenas importantes para ilustrar a emoção da disputa:</p>
+
+        <div class="gallery">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/1/18/Matt_Damon_2013.jpg" alt="Matt Damon como Carroll Shelby" class="film-scene" loading="lazy" />
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Christian_Bale_2014.jpg" alt="Christian Bale como Ken Miles" class="film-scene" loading="lazy" />
+            <img src="https://m.media-amazon.com/images/M/MV5BMTkxOTYzNjA3MF5BMl5BanBnXkFtZTgwNjQ3MzM2NzM@._V1_.jpg" alt="Cena de corrida do filme Ford vs Ferrari" class="film-scene" loading="lazy" />
+            <img src="https://m.media-amazon.com/images/M/MV5BY2FkYmMxNjYtZjBjZS00ZjA1LThlYTgtYzMxNGVkZTg2ZmIzXkEyXkFqcGdeQXVyNjY1MTg4Mzk@._V1_.jpg" alt="Ken Miles pilotando no filme" class="film-scene" loading="lazy" />
+        </div>
+    </section>
+
+    <section id="galeria" tabindex="0">
+        <h2>Galeria de Imagens</h2>
+        <div class="gallery">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/8/87/Ford_GT40_Le_Mans_1966.jpg" alt="Ford GT40 em Le Mans 1966" loading="lazy" />
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6d/Ford_GT40MkII_Le_Mans_1966_2.jpg" alt="Ford GT40 Mk II" loading="lazy" />
+            <img src="https://upload.wikimedia.org/wikipedia/commons/9/9f/Ferrari_330_P3_1967.jpg" alt="Ferrari 330 P3 1967" loading="lazy" />
+            <img src="https://upload.wikimedia.org/wikipedia/commons/1/18/Matt_Damon_2013.jpg" alt="Matt Damon como Carroll Shelby" loading="lazy" />
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Christian_Bale_2014.jpg" alt="Christian Bale como Ken Miles" loading="lazy" />
+        </div>
+    </section>
+
+    <section id="links" class="external-links" tabindex="0">
+        <h2>Links Úteis</h2>
+        <a href="https://pt.wikipedia.org/wiki/Ford_vs_Ferrari" target="_blank" rel="noopener noreferrer" aria-label="Wikipédia Ford vs Ferrari">
+            Wikipédia
+        </a>
+        <a href="https://www.imdb.com/title/tt1950186/" target="_blank" rel="noopener noreferrer" aria-label="IMDb Ford vs Ferrari">
+            IMDb
+        </a>
+        <a href="https://en.wikipedia.org/wiki/24_Hours_of_Le_Mans" target="_blank" rel="noopener noreferrer" aria-label="Wikipédia 24 Horas de Le Mans">
+            Le Mans (Wikipédia)
+        </a>
+        <a href="https://www.lemans.org/en/" target="_blank" rel="noopener noreferrer" aria-label="Site oficial 24 Horas de Le Mans">
+            Site Oficial Le Mans
+        </a>
+    </section>
+
+    <section id="sobre" tabindex="0">
+        <h2>Sobre este site</h2>
+        <p>
+            Este site foi criado para fãs de automobilismo e cinema, reunindo informações sobre o filme <em>Ford vs Ferrari</em> e a lendária corrida de 24 Horas de Le Mans. Nosso objetivo é apresentar conteúdo rico, imagens e links confiáveis para uma experiência completa e agradável.
+        </p>
+    </section>
+</main>
+
+<footer>
+    &copy; 2025 Ford vs Ferrari Fan Site | Feito com ❤️ e código limpo
+</footer>
+
+</body>
+</html>
